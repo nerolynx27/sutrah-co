@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { getSupabase } from "@/lib/supabase";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -21,7 +21,7 @@ export default function Contact() {
     setLoading(true);
     setError("");
 
-    const { error } = await supabase.from("leads").insert({
+    const { error } = await getSupabase().from("leads").insert({
       name: form.name,
       business_name: form.business,
       business_type: form.type,
