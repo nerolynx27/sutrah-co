@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -21,16 +20,20 @@ export default function Contact() {
     setLoading(true);
     setError("");
 
-    const { error } = await supabase.from("leads").insert({
-      name: form.name,
-      business_name: form.business,
-      business_type: form.type,
-      email: form.email,
-      whatsapp: form.whatsapp,
-      message: form.message,
+    const res = await fetch("/api/leads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: form.name,
+        business_name: form.business,
+        business_type: form.type,
+        email: form.email,
+        whatsapp: form.whatsapp,
+        message: form.message,
+      }),
     });
 
-    if (error) {
+    if (!res.ok) {
       setError("Something went wrong. Please try again or WhatsApp us directly.");
       setLoading(false);
     } else {
