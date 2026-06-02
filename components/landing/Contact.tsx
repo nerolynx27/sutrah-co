@@ -159,8 +159,8 @@ export default function Contact() {
 
             <p className="text-center text-[#ECDCAB]/30 text-xs">
               Or WhatsApp us directly:{" "}
-              <a href="https://wa.me/601XXXXXXXX" className="text-[#BF932A] hover:underline">
-                +60 1X-XXX XXXX
+              <a href="https://wa.me/60111979197" className="text-[#BF932A] hover:underline">
+                +60 11-1979 1976
               </a>
             </p>
           </form>
