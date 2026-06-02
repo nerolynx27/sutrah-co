@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -12,11 +13,29 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: wire to Supabase
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    const { error } = await supabase.from("leads").insert({
+      name: form.name,
+      business_name: form.business,
+      business_type: form.type,
+      email: form.email,
+      whatsapp: form.whatsapp,
+      message: form.message,
+    });
+
+    if (error) {
+      setError("Something went wrong. Please try again or WhatsApp us directly.");
+      setLoading(false);
+    } else {
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -123,11 +142,16 @@ export default function Contact() {
               />
             </div>
 
+            {error && (
+              <p className="text-red-400 text-sm text-center">{error}</p>
+            )}
+
             <button
               type="submit"
-              className="w-full py-4 rounded-full bg-[#BF932A] text-[#0D0D0D] font-bold text-base hover:bg-[#DFC57B] transition-all duration-200 shadow-lg shadow-[#BF932A]/20 mt-2"
+              disabled={loading}
+              className="w-full py-4 rounded-full bg-[#BF932A] text-[#0D0D0D] font-bold text-base hover:bg-[#DFC57B] transition-all duration-200 shadow-lg shadow-[#BF932A]/20 mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Send My Request →
+              {loading ? "Sending..." : "Send My Request →"}
             </button>
 
             <p className="text-center text-[#ECDCAB]/30 text-xs">
