@@ -23,10 +23,14 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Copyright */}
-        <p className="text-[#ECDCAB]/30 text-xs">
-          © {new Date().getFullYear()} Sutrah.co. All rights reserved.
-        </p>
+        <div className="flex flex-col items-center md:items-end gap-1">
+          <a href="/intake" className="text-sm px-4 py-2 rounded-full border border-[#BF932A]/40 text-[#BF932A] hover:bg-[#BF932A]/10 transition-colors">
+            Start a Project →
+          </a>
+          <p className="text-[#ECDCAB]/30 text-xs mt-1">
+            © {new Date().getFullYear()} Sutrah.co. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );

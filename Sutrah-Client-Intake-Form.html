@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sutrah.co — Client Intake Form</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; font-size: 13px; color: #333; background: #fff; max-width: 800px; margin: 0 auto; padding: 40px 40px; }
+  .header { text-align: center; border-bottom: 3px solid #BF932A; padding-bottom: 16px; margin-bottom: 24px; }
+  .header h1 { font-size: 28px; color: #BF932A; letter-spacing: 1px; }
+  .header p { color: #888; font-size: 12px; margin-top: 4px; }
+  .header h2 { font-size: 16px; color: #333; margin-top: 8px; letter-spacing: 2px; text-transform: uppercase; }
+  .intro { background: #FDF8EE; border-left: 4px solid #BF932A; padding: 12px 16px; margin-bottom: 24px; font-size: 12px; color: #555; line-height: 1.6; }
+  .section { margin-bottom: 24px; }
+  .section-title { background: #BF932A; color: #fff; font-size: 13px; font-weight: bold; padding: 6px 12px; border-radius: 4px; margin-bottom: 12px; }
+  .field-row { display: grid; grid-template-columns: 200px 1fr; border: 1px solid #ddd; margin-bottom: -1px; }
+  .field-label { background: #F5F0E8; padding: 8px 12px; font-weight: bold; font-size: 12px; border-right: 1px solid #ddd; display: flex; align-items: center; }
+  .field-value { padding: 8px 12px; min-height: 34px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+  th { background: #F5F0E8; padding: 7px 10px; text-align: left; font-size: 12px; border: 1px solid #ddd; }
+  td { padding: 7px 10px; border: 1px solid #ddd; font-size: 12px; height: 32px; }
+  .textarea-box { border: 1px solid #ddd; min-height: 80px; padding: 8px 12px; width: 100%; }
+  .package-table td:first-child { text-align: center; font-size: 16px; }
+  .footer { border-top: 2px solid #BF932A; padding-top: 12px; margin-top: 32px; text-align: center; }
+  .footer p { font-size: 11px; color: #888; line-height: 1.8; }
+  .footer strong { color: #BF932A; }
+  @media print {
+    body { padding: 20px; }
+    .section-title { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Sutrah.co</h1>
+  <p>Professional Websites for Malaysian Businesses</p>
+  <h2>Client Intake Form</h2>
+</div>
+
+<div class="intro">
+  Thank you for choosing Sutrah.co! Please fill in this form as completely as possible. This helps us build your website accurately and deliver it within 7 days. WhatsApp us at <strong>+60 11-1979 1976</strong> if you have any questions.
+</div>
+
+<!-- Section 1 -->
+<div class="section">
+  <div class="section-title">1. Business Information</div>
+  <div class="field-row"><div class="field-label">Business Name</div><div class="field-value"></div></div>
+  <div class="field-row"><div class="field-label">Business Type</div><div class="field-value">e.g. Klinik, Salon, Spa, Cafe...</div></div>
+  <div class="field-row"><div class="field-label">Tagline / Slogan</div><div class="field-value"></div></div>
+  <div class="field-row"><div class="field-label">Website Goal</div><div class="field-value">e.g. Get more bookings, look professional...</div></div>
+</div>
+
+<!-- Section 2 -->
+<div class="section">
+  <div class="section-title">2. Contact Details</div>
+  <div class="field-row"><div class="field-label">Owner / PIC Name</div><div class="field-value"></div></div>
+  <div class="field-row"><div class="field-label">WhatsApp Number</div><div class="field-value"></div></div>
+  <div class="field-row"><div class="field-label">Email Address</div><div class="field-value"></div></div>
+  <div class="field-row"><div class="field-label">Business Phone</div><div class="field-value"></div></div>
+  <div class="field-row"><div class="field-label">Business Address</div><div class="field-value"></div></div>
+  <div class="field-row"><div class="field-label">Google Maps Link</div><div class="field-value">Paste your Google Maps URL here</div></div>
+</div>
+
+<!-- Section 3 -->
+<div class="section">
+  <div class="section-title">3. Operating Hours</div>
+  <div class="field-row"><div class="field-label">Weekdays (Mon–Fri)</div><div class="field-value"></div></div>
+  <div class="field-row"><div class="field-label">Saturday</div><div class="field-value"></div></div>
+  <div class="field-row"><div class="field-label">Sunday / Public Holiday</div><div class="field-value"></div></div>
+</div>
+
+<!-- Section 4 -->
+<div class="section">
+  <div class="section-title">4. Services & Pricing (up to 6)</div>
+  <table>
+    <thead><tr><th style="width:40px">#</th><th>Service Name & Description</th><th style="width:110px">Price (RM)</th><th style="width:100px">Duration</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td></td><td></td><td></td></tr>
+      <tr><td>2</td><td></td><td></td><td></td></tr>
+      <tr><td>3</td><td></td><td></td><td></td></tr>
+      <tr><td>4</td><td></td><td></td><td></td></tr>
+      <tr><td>5</td><td></td><td></td><td></td></tr>
+      <tr><td>6</td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Section 5 -->
+<div class="section">
+  <div class="section-title">5. About Your Business</div>
+  <p style="font-size:11px; color:#888; margin-bottom:6px;">Write 3–5 sentences about your business (history, mission, what makes you different):</p>
+  <div class="textarea-box"></div>
+</div>
+
+<!-- Section 6 -->
+<div class="section">
+  <div class="section-title">6. Design Preferences</div>
+  <div class="field-row"><div class="field-label">Preferred Colors</div><div class="field-value">e.g. Blue & white, gold & black...</div></div>
+  <div class="field-row"><div class="field-label">Websites You Like</div><div class="field-value">Paste links to sites you like the look of</div></div>
+  <div class="field-row"><div class="field-label">Logo Available?</div><div class="field-value">Yes / No — if yes, send file via WhatsApp</div></div>
+  <div class="field-row"><div class="field-label">Photos Available?</div><div class="field-value">Yes / No — if yes, send via WhatsApp or Google Drive</div></div>
+</div>
+
+<!-- Section 7 -->
+<div class="section">
+  <div class="section-title">7. Package Selection</div>
+  <table class="package-table">
+    <thead><tr><th style="width:50px">Choose</th><th>Package</th><th style="width:130px">Setup Fee</th><th style="width:130px">Monthly</th></tr></thead>
+    <tbody>
+      <tr><td>☐</td><td><strong>Starter</strong> — 5 pages, WhatsApp button, mobile-friendly, basic SEO</td><td>RM 500</td><td>RM 99/mo</td></tr>
+      <tr><td>☐</td><td><strong>Pro</strong> — 8 pages, gallery, booking form, SEO optimised, priority support</td><td>RM 1,000</td><td>RM 199/mo</td></tr>
+      <tr><td>☐</td><td><strong>Premium</strong> — Custom design, animations, unlimited pages, same-day support</td><td>RM 2,000</td><td>RM 399/mo</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Section 8 -->
+<div class="section">
+  <div class="section-title">8. Domain & Hosting</div>
+  <div class="field-row"><div class="field-label">Do you have a domain?</div><div class="field-value">Yes / No</div></div>
+  <div class="field-row"><div class="field-label">Domain name (if yes)</div><div class="field-value">e.g. klinik-amanah.com</div></div>
+  <div class="field-row"><div class="field-label">Where registered?</div><div class="field-value">e.g. Namecheap, GoDaddy, Exabytes...</div></div>
+</div>
+
+<div class="footer">
+  <p>Once completed, WhatsApp this form to <strong>+60 11-1979 1976</strong> or email <strong>mamunmuaz463@gmail.com</strong></p>
+  <p style="margin-top:6px; color:#BF932A; font-weight:bold;">sutrah.co — Professional Websites for Malaysian Businesses</p>
+</div>
+
+</body>
+</html>
