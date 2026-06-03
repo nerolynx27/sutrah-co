@@ -59,6 +59,7 @@ export default function Hero() {
       <motion.div
         style={{
           flex: 1,
+          minHeight: 0,
           borderRadius: "65px",
           backgroundColor: "#FCF7DD",
           display: "flex",
@@ -77,7 +78,7 @@ export default function Hero() {
           <motion.h1
             style={{
               fontFamily: "var(--font-fraunces)",
-              fontSize: "88px",
+              fontSize: "clamp(56px, 7.5vw, 96px)",
               lineHeight: 1.05,
               fontWeight: 700,
               margin: 0,
