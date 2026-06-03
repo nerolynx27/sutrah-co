@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Hero Grid — Sutrah.co</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a1a; display: flex; flex-direction: column; align-items: center; padding: 32px; font-family: monospace; }
+    h1 { color: #BF932A; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+    .legend { display: flex; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; justify-content: center; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #aaa; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+    .canvas {
+      position: relative;
+      width: 1200px;
+      height: 720px;
+      background: #FAFAF5;
+      border: 2px solid #BF932A;
+      overflow: hidden;
+    }
+
+    /* Grid columns — 12 cols */
+    .grid-col {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: rgba(191,147,42,0.15);
+    }
+    /* Grid rows — 8 rows */
+    .grid-row {
+      position: absolute;
+      left: 0; right: 0;
+      height: 1px;
+      background: rgba(191,147,42,0.15);
+    }
+
+    /* Col/row labels */
+    .col-label {
+      position: absolute;
+      top: 4px;
+      font-size: 10px;
+      color: rgba(191,147,42,0.6);
+      transform: translateX(-50%);
+      font-family: monospace;
+    }
+    .row-label {
+      position: absolute;
+      left: 4px;
+      font-size: 10px;
+      color: rgba(191,147,42,0.6);
+      transform: translateY(-50%);
+      font-family: monospace;
+    }
+
+    /* ── ACTUAL ELEMENTS ── */
+
+    /* Navbar area */
+    .navbar {
+      position: absolute;
+      top: 24px; left: 24px; right: 24px;
+      height: 72px;
+      border: 1.5px dashed rgba(191,147,42,0.4);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+
+    /* Logo block */
+    .logo-block {
+      position: absolute;
+      top: 24px; left: 24px;
+      width: 80px;
+      height: 72px;
+      background: rgba(122,92,42,0.08);
+      border: 1.5px solid rgba(122,92,42,0.3);
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+    .logo-icon { width: 28px; height: 28px; background: #BF932A; border-radius: 4px; opacity: 0.7; }
+    .logo-text { font-size: 8px; color: #7A5C2A; font-weight: bold; }
+
+    /* Nav pills */
+    .nav-pills {
+      position: absolute;
+      top: 36px; right: 24px;
+      display: flex; gap: 8px;
+    }
+    .pill {
+      background: #BF932A;
+      color: #FCF7DD;
+      border-radius: 65px;
+      padding: 6px 18px;
+      font-size: 11px;
+      font-family: sans-serif;
+    }
+
+    /* Hero card */
+    .card {
+      position: absolute;
+      top: 112px; left: 24px; right: 24px; bottom: 24px;
+      background: #FCF7DD;
+      border-radius: 65px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 60px 48px;
+    }
+
+    .headline {
+      text-align: center;
+    }
+    .h-line1 { font-size: 52px; font-family: Georgia, serif; color: #7A5C2A; font-weight: bold; line-height: 1.05; }
+    .h-line2 { font-size: 52px; font-family: Georgia, serif; color: #BF932A; font-style: italic; font-weight: bold; line-height: 1.05; }
+    .subtext { font-size: 13px; color: #7A5C2A; margin-top: 20px; font-family: sans-serif; text-align: center; }
+
+    .explore { font-size: 12px; color: #7A5C2A; font-family: sans-serif; letter-spacing: 1px; }
+
+    /* Measurement overlays */
+    .measure {
+      position: absolute;
+      background: rgba(191,147,42,0.12);
+      border: 1px dashed rgba(191,147,42,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      color: rgba(191,147,42,0.8);
+      font-family: monospace;
+      pointer-events: none;
+    }
+
+    /* Coordinate tooltip pins */
+    .pin {
+      position: absolute;
+      width: 6px; height: 6px;
+      background: #BF932A;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .pin-label {
+      position: absolute;
+      font-size: 9px;
+      color: #BF932A;
+      font-family: monospace;
+      white-space: nowrap;
+      background: rgba(26,26,26,0.7);
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Sutrah.co — Hero Grid (1200 × 720)</h1>
+
+<div class="legend">
+  <div class="legend-item"><div class="dot" style="background:#BF932A"></div> Gold pin = element anchor point</div>
+  <div class="legend-item"><div class="dot" style="background:rgba(191,147,42,0.15);border:1px solid #BF932A"></div> Dashed = element boundary</div>
+  <div class="legend-item"><div class="dot" style="background:rgba(191,147,42,0.15)"></div> Faint lines = grid (100px each)</div>
+</div>
+
+<div class="canvas" id="canvas">
+
+  <!-- Grid lines: 12 cols (100px each) -->
+  <script>
+    // We'll inject grid via script below
+  </script>
+
+  <!-- Navbar dashed boundary -->
+  <div class="navbar"></div>
+
+  <!-- Logo block -->
+  <div class="logo-block">
+    <div class="logo-icon"></div>
+    <div class="logo-text">Sutrah.co</div>
+  </div>
+  <!-- Logo pin -->
+  <div class="pin" style="top:60px;left:64px"></div>
+  <div class="pin-label" style="top:65px;left:72px">logo (col 0.2, row 0.5)</div>
+
+  <!-- Nav pills -->
+  <div class="nav-pills">
+    <div class="pill">Work</div>
+    <div class="pill">Pricing</div>
+    <div class="pill">Contact</div>
+  </div>
+  <!-- Pills pin -->
+  <div class="pin" style="top:58px;right:24px;left:auto;transform:translate(50%,-50%)"></div>
+  <div class="pin-label" style="top:65px;right:230px">pills (col 7–11, row 0.5)</div>
+
+  <!-- Hero card -->
+  <div class="card">
+    <div class="headline">
+      <div class="h-line1">We build. We run.</div>
+      <div class="h-line2">You grow.</div>
+      <div class="subtext">Professional websites for Malaysian businesses —<br>built fast, managed fully, zero headaches.</div>
+    </div>
+    <div class="explore">Explore ↓</div>
+  </div>
+
+  <!-- Card pin top-left corner -->
+  <div class="pin" style="top:112px;left:24px"></div>
+  <div class="pin-label" style="top:118px;left:32px">card start (col 0.2, row 1.6)</div>
+
+  <!-- Headline pin -->
+  <div class="pin" style="top:260px;left:600px"></div>
+  <div class="pin-label" style="top:266px;left:608px">headline center (col 6, row 3.6)</div>
+
+  <!-- Explore pin -->
+  <div class="pin" style="bottom:48px;left:600px;top:auto"></div>
+  <div class="pin-label" style="bottom:54px;left:608px">explore (col 6, row 7.5)</div>
+
+</div>
+
+<script>
+  const canvas = document.getElementById('canvas');
+  const W = 1200, H = 720;
+  const colSize = 100; // 12 cols
+  const rowSize = 90;  // 8 rows
+
+  // Draw column lines
+  for (let c = 1; c < 12; c++) {
+    const x = c * colSize;
+    const line = document.createElement('div');
+    line.className = 'grid-col';
+    line.style.left = x + 'px';
+    canvas.appendChild(line);
+
+    const label = document.createElement('div');
+    label.className = 'col-label';
+    label.style.left = x + 'px';
+    label.textContent = 'C' + c;
+    canvas.appendChild(label);
+  }
+
+  // Draw row lines
+  for (let r = 1; r < 8; r++) {
+    const y = r * rowSize;
+    const line = document.createElement('div');
+    line.className = 'grid-row';
+    line.style.top = y + 'px';
+    canvas.appendChild(line);
+
+    const label = document.createElement('div');
+    label.className = 'row-label';
+    label.style.top = y + 'px';
+    label.textContent = 'R' + r;
+    canvas.appendChild(label);
+  }
+</script>
+
+<div style="margin-top:20px;color:#666;font-size:11px;font-family:monospace;text-align:center;max-width:900px;line-height:1.8">
+  HOW TO USE: Tell me element positions using column (C1–C11) and row (R1–R7) references.<br>
+  Example: "Move headline to C3–C9, R3" or "Logo at C0, R0 — size 60px"<br>
+  Canvas = 1200×720px | Each column = 100px | Each row = 90px
+</div>
+
+</body>
+</html>

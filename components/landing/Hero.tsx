@@ -65,20 +65,20 @@ export default function Hero() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          alignItems: "center",
-          padding: "80px 60px 60px 60px",
-          textAlign: "center",
+          alignItems: "flex-start",
+          padding: "72px 80px 60px 80px",
+          textAlign: "left",
         }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       >
         {/* Headline */}
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "20px" }}>
           <motion.h1
             style={{
               fontFamily: "var(--font-fraunces)",
-              fontSize: "clamp(56px, 7.5vw, 96px)",
+              fontSize: "clamp(64px, 9vw, 110px)",
               lineHeight: 1.05,
               fontWeight: 700,
               margin: 0,
@@ -99,7 +99,7 @@ export default function Hero() {
               color: "#7A5C2A",
               fontSize: "16px",
               lineHeight: 1.6,
-              maxWidth: "560px",
+              maxWidth: "800px",
               margin: 0,
             }}
             initial={{ opacity: 0, y: 12 }}
