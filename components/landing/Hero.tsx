@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-[#FCFCF7] flex flex-col p-5 md:p-8 gap-4">
+    <section className="min-h-screen bg-[#FCFCF7] flex flex-col" style={{ padding: "28px", gap: "16px" }}>
 
       {/* Navbar */}
       <motion.div
@@ -42,7 +42,8 @@ export default function Hero() {
 
       {/* Hero card — fills remaining height */}
       <motion.div
-        className="flex-1 rounded-3xl bg-[#ECDCAB]/40 flex flex-col justify-between p-10 md:p-16 mx-2 mb-2"
+        className="flex-1 rounded-3xl flex flex-col justify-between"
+        style={{ backgroundColor: "#EDE8C8", padding: "64px" }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
