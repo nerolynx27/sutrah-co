@@ -55,7 +55,8 @@ export default function Hero() {
           backgroundColor: "#FCF7DD",
           borderRadius: "65px",
           margin: "16px 0",
-          padding: "120px 80px",
+          padding: "160px 80px",
+          minHeight: "80vh",
           textAlign: "center",
           display: "flex",
           flexDirection: "column",
@@ -69,7 +70,7 @@ export default function Hero() {
         <motion.h1
           style={{
             fontFamily: "var(--font-fraunces)",
-            fontSize: "88px",
+            fontSize: "96px",
             fontWeight: 700,
             color: "#7A5C2A",
             lineHeight: 1.1,
@@ -86,13 +87,13 @@ export default function Hero() {
         <motion.h2
           style={{
             fontFamily: "var(--font-fraunces)",
-            fontSize: "88px",
+            fontSize: "96px",
             fontWeight: 700,
             fontStyle: "italic",
             color: "#BF932A",
             lineHeight: 1.1,
             margin: 0,
-            marginBottom: "48px",
+            marginBottom: "64px",
           }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -107,8 +108,8 @@ export default function Hero() {
             fontFamily: "var(--font-dm-sans)",
             fontSize: "16px",
             color: "#7A5C2A",
-            maxWidth: "640px",
-            margin: "0 auto 48px auto",
+            maxWidth: "720px",
+            margin: "0 auto 64px auto",
             lineHeight: 1.6,
           }}
           initial={{ opacity: 0, y: 16 }}
