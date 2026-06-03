@@ -1,21 +1,18 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Colors */
-  --color-bg:           #0D0D0D;
-  --color-surface:      #1A1A1A;
-  --color-gold-light:   #FCFCF7;
-  --color-gold-cream:   #ECDCAB;
+  /* New light gold palette */
+  --color-bg:           #FCFCF7;
+  --color-surface:      #ECDCAB;
   --color-gold-mid:     #DFC57B;
   --color-gold-primary: #BF932A;
   --color-gold-dark:    #9E6200;
+  --color-text:         #2A1A00;
+  --color-text-muted:   #7A5C2A;
 
-  /* Font */
-  --font-sans: var(--font-jakarta);
-}
-
-:root {
-  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+  /* Fonts */
+  --font-serif: var(--font-fraunces);
+  --font-sans:  var(--font-epilogue);
 }
 
 * {
@@ -25,15 +22,19 @@
 }
 
 body {
-  background-color: #0D0D0D;
-  color: #FCFCF7;
-  font-family: var(--font-jakarta), sans-serif;
+  background-color: #FCFCF7;
+  color: #2A1A00;
+  font-family: var(--font-epilogue), sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-fraunces), serif;
 }
 
 ::selection {
   background: #BF932A;
-  color: #0D0D0D;
+  color: #FCFCF7;
 }
 
 html {

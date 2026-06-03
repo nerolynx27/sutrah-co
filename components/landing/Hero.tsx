@@ -1,70 +1,114 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute inset-0 bg-[#0D0D0D]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#BF932A]/10 blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full bg-[#9E6200]/8 blur-[100px] pointer-events-none" />
+    <section className="relative min-h-screen flex flex-col bg-[#FCFCF7] overflow-hidden">
 
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center gap-8 pt-32 pb-16">
-
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#BF932A]/30 bg-[#BF932A]/10 text-[#DFC57B] text-sm font-medium">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#BF932A] animate-pulse" />
-          Now serving Malaysian businesses
+      {/* Navbar row */}
+      <motion.div
+        className="flex items-center justify-between px-8 md:px-16 pt-10"
+        initial={{ opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        {/* Logo + wordmark */}
+        <div className="flex items-center gap-3">
+          <Image
+            src="/logo/sutrah-logo.svg"
+            alt="Sutrah"
+            width={32}
+            height={32}
+          />
+          <span
+            className="text-[#2A1A00] text-base font-medium tracking-wide"
+            style={{ fontFamily: "var(--font-epilogue)" }}
+          >
+            Sutrah.co
+          </span>
         </div>
 
-        {/* Headline */}
-        <h1 className="text-5xl md:text-7xl font-extrabold text-[#FCFCF7] leading-[1.1] tracking-tight max-w-4xl">
-          Your Business Deserves a{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#BF932A] via-[#DFC57B] to-[#BF932A]">
-            Professional Website
-          </span>
-        </h1>
-
-        {/* Subtext */}
-        <p className="text-lg md:text-xl text-[#ECDCAB]/70 max-w-2xl leading-relaxed">
-          We build fast, beautiful websites for Malaysian businesses — then manage everything for you. No tech headaches, no disappearing freelancers. Just results.
-        </p>
-
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
+        {/* Nav links */}
+        <nav className="hidden md:flex items-center gap-8">
+          {["Services", "How It Works", "Pricing"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase().replace(/ /g, "-")}`}
+              className="text-[#7A5C2A] text-sm hover:text-[#BF932A] transition-colors duration-200"
+              style={{ fontFamily: "var(--font-epilogue)" }}
+            >
+              {item}
+            </a>
+          ))}
           <a
             href="#contact"
-            className="px-8 py-3.5 rounded-full bg-[#BF932A] text-[#0D0D0D] font-bold text-base hover:bg-[#DFC57B] transition-all duration-200 shadow-lg shadow-[#BF932A]/20"
+            className="px-5 py-2 rounded-full border border-[#BF932A] text-[#BF932A] text-sm font-medium hover:bg-[#BF932A] hover:text-[#FCFCF7] transition-all duration-200"
+            style={{ fontFamily: "var(--font-epilogue)" }}
           >
-            Get Your Website →
+            Get Started
           </a>
-          <a
-            href="#how-it-works"
-            className="px-8 py-3.5 rounded-full border border-[#ECDCAB]/20 text-[#ECDCAB] font-medium text-base hover:border-[#BF932A]/50 hover:text-[#FCFCF7] transition-all duration-200"
+        </nav>
+      </motion.div>
+
+      {/* Main content — vertically centered */}
+      <div className="flex-1 flex flex-col items-start justify-center px-8 md:px-16 pb-24">
+
+        {/* Slogan */}
+        <div className="overflow-hidden">
+          <motion.h1
+            className="text-5xl md:text-7xl lg:text-8xl text-[#2A1A00] leading-[1.05] tracking-tight max-w-3xl"
+            style={{ fontFamily: "var(--font-fraunces)" }}
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           >
-            See How It Works
-          </a>
+            We build.{" "}
+            <span className="text-[#BF932A] italic">We run.</span>
+            <br />
+            You grow.
+          </motion.h1>
         </div>
 
-        {/* Social proof numbers */}
-        <div className="flex items-center gap-8 mt-6 pt-8 border-t border-[#1A1A1A] w-full justify-center flex-wrap">
-          {[
-            { number: "7 Days", label: "Average delivery" },
-            { number: "RM99/mo", label: "Starting price" },
-            { number: "100%", label: "Mobile-friendly" },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center gap-1">
-              <span className="text-2xl font-bold text-[#BF932A]">{stat.number}</span>
-              <span className="text-sm text-[#ECDCAB]/50">{stat.label}</span>
-            </div>
-          ))}
-        </div>
+        {/* Subline */}
+        <motion.p
+          className="mt-6 text-[#7A5C2A] text-base md:text-lg max-w-md leading-relaxed"
+          style={{ fontFamily: "var(--font-epilogue)" }}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          Professional websites for Malaysian businesses — built fast, managed fully, zero headaches.
+        </motion.p>
+
+        {/* Scroll cue */}
+        <motion.div
+          className="mt-16 flex flex-col items-start gap-2 cursor-pointer group"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.6 }}
+        >
+          <a href="#about" className="flex flex-col items-center gap-2">
+            <span
+              className="text-xs text-[#BF932A] tracking-[0.2em] uppercase"
+              style={{ fontFamily: "var(--font-epilogue)" }}
+            >
+              About us
+            </span>
+            <motion.div
+              animate={{ y: [0, 6, 0] }}
+              transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+              className="text-[#BF932A] text-lg"
+            >
+              ↓
+            </motion.div>
+          </a>
+        </motion.div>
       </div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0D0D0D] to-transparent pointer-events-none" />
+      {/* Subtle bottom border */}
+      <div className="absolute bottom-0 left-8 right-8 h-[1px] bg-[#DFC57B]/40" />
     </section>
   );
 }

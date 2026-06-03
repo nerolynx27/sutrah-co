@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Fraunces, Epilogue } from "next/font/google";
 import "./globals.css";
+import Loader from "@/components/Loader";
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "900"],
+});
+
+const epilogue = Epilogue({
+  variable: "--font-epilogue",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const BASE_URL = "https://sutrah-co.vercel.app";
@@ -47,8 +54,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jakarta.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-bg text-gold-light">
+    <html lang="en" className={`${fraunces.variable} ${epilogue.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-bg text-text">
+        <Loader />
         {children}
       </body>
     </html>
