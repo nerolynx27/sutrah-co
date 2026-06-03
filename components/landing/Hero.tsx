@@ -5,17 +5,16 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section
-      style={{
-        minHeight: "100vh",
-        backgroundColor: "#FAFAF5",
-        display: "flex",
-        flexDirection: "column",
-        padding: "24px 24px 24px 24px",
-        gap: "16px",
-        boxSizing: "border-box",
-      }}
-    >
+    <section style={{
+      minHeight: "100vh",
+      backgroundColor: "#FAFAF5",
+      display: "flex",
+      flexDirection: "column",
+      padding: "24px",
+      gap: "16px",
+      boxSizing: "border-box",
+    }}>
+
       {/* Navbar */}
       <motion.div
         style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
@@ -23,33 +22,33 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        {/* Logo top left */}
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "4px" }}>
+        {/* Logo + wordmark */}
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px" }}>
           <Image src="/logo/sutrah-logo.svg" alt="Sutrah" width={52} height={52} />
-          <span style={{ fontFamily: "var(--font-epilogue)", color: "#2A1A00", fontSize: "14px", fontWeight: 700 }}>
+          <span style={{
+            fontFamily: "var(--font-frank-ruhl)",
+            color: "#7A5C2A",
+            fontSize: "19px",
+            fontWeight: 500,
+          }}>
             Sutrah.co
           </span>
         </div>
 
-        {/* Pill nav */}
+        {/* Nav pills */}
         <nav style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           {["Work", "Pricing", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              style={{
-                fontFamily: "var(--font-fraunces)",
-                backgroundColor: "#BF932A",
-                color: "#FCFCF7",
-                padding: "10px 28px",
-                borderRadius: "999px",
-                fontSize: "15px",
-                fontStyle: "italic",
-                fontWeight: 500,
-                textDecoration: "none",
-                whiteSpace: "nowrap",
-              }}
-            >
+            <a key={item} href={`#${item.toLowerCase()}`} style={{
+              fontFamily: "var(--font-dm-sans)",
+              backgroundColor: "#BF932A",
+              color: "#FCF7DD",
+              padding: "10px 28px",
+              borderRadius: "65px",
+              fontSize: "16px",
+              fontWeight: 500,
+              textDecoration: "none",
+              whiteSpace: "nowrap",
+            }}>
               {item}
             </a>
           ))}
@@ -60,8 +59,8 @@ export default function Hero() {
       <motion.div
         style={{
           flex: 1,
-          borderRadius: "24px",
-          backgroundColor: "#F5F0DC",
+          borderRadius: "65px",
+          backgroundColor: "#FCF7DD",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -73,13 +72,12 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
       >
-        {/* Headline block */}
+        {/* Headline */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "24px" }}>
           <motion.h1
             style={{
               fontFamily: "var(--font-fraunces)",
-              fontSize: "clamp(56px, 8vw, 96px)",
-              color: "#1A1200",
+              fontSize: "88px",
               lineHeight: 1.05,
               fontWeight: 700,
               margin: 0,
@@ -88,16 +86,17 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
           >
-            We build. We run.
+            <span style={{ color: "#7A5C2A" }}>We build. We run.</span>
             <br />
             <span style={{ color: "#BF932A", fontStyle: "italic" }}>You grow.</span>
           </motion.h1>
 
+          {/* Subtext */}
           <motion.p
             style={{
-              fontFamily: "var(--font-epilogue)",
-              color: "#5C3D00",
-              fontSize: "17px",
+              fontFamily: "var(--font-dm-sans)",
+              color: "#7A5C2A",
+              fontSize: "16px",
               lineHeight: 1.6,
               maxWidth: "560px",
               margin: 0,
@@ -110,19 +109,17 @@ export default function Hero() {
           </motion.p>
         </div>
 
-        {/* Explore cue */}
+        {/* Explore */}
         <motion.a
           href="#work"
           style={{
-            fontFamily: "var(--font-epilogue)",
-            color: "#BF932A",
+            fontFamily: "var(--font-dm-sans)",
+            color: "#7A5C2A",
+            fontSize: "16px",
             display: "flex",
             alignItems: "center",
             gap: "8px",
             textDecoration: "none",
-            fontSize: "12px",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -137,6 +134,7 @@ export default function Hero() {
           </motion.span>
         </motion.a>
       </motion.div>
+
     </section>
   );
 }

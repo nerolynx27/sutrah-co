@@ -1,18 +1,24 @@
 import type { Metadata } from "next";
-import { Fraunces, Epilogue } from "next/font/google";
+import { Fraunces, DM_Sans, Frank_Ruhl_Libre } from "next/font/google";
 import "./globals.css";
 import Loader from "@/components/Loader";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "900"],
+  weight: ["400", "500", "600", "700", "900"],
 });
 
-const epilogue = Epilogue({
-  variable: "--font-epilogue",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
+});
+
+const frankRuhl = Frank_Ruhl_Libre({
+  variable: "--font-frank-ruhl",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
 const BASE_URL = "https://sutrah-co.vercel.app";
@@ -54,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${epilogue.variable} h-full antialiased`}>
+    <html lang="en" className={`${fraunces.variable} ${dmSans.variable} ${frankRuhl.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-bg text-text">
         <Loader />
         {children}
