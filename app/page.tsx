@@ -1,4 +1,3 @@
-import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import Services from "@/components/landing/Services";
 import HowItWorks from "@/components/landing/HowItWorks";
@@ -9,8 +8,7 @@ import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0D0D0D]">
-      <Navbar />
+    <main className="min-h-screen bg-[#FCFCF7]">
       <Hero />
       <Services />
       <HowItWorks />
