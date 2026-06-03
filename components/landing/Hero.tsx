@@ -42,7 +42,7 @@ export default function Hero() {
 
       {/* Hero card — fills remaining height */}
       <motion.div
-        className="flex-1 rounded-3xl bg-[#EDE8C8] flex flex-col justify-between p-10 md:p-16"
+        className="flex-1 rounded-3xl bg-[#ECDCAB]/40 flex flex-col justify-between p-10 md:p-16 mx-2 mb-2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
