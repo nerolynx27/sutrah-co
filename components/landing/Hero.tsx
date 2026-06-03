@@ -5,31 +5,24 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section style={{
-      minHeight: "100vh",
-      backgroundColor: "#FAFAF5",
-      display: "flex",
-      flexDirection: "column",
-      padding: "24px",
-      gap: "16px",
-      boxSizing: "border-box",
-    }}>
+    <section style={{ backgroundColor: "#FAFAF0", padding: "0 32px" }}>
 
-      {/* Navbar */}
-      <motion.div
-        style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
-        {/* Logo + wordmark */}
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "2px" }}>
+      {/* NAVBAR */}
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "24px 0",
+      }}>
+        {/* Logo */}
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "4px" }}>
           <Image src="/logo/sutrah-logo.svg" alt="Sutrah" width={52} height={52} />
           <span style={{
             fontFamily: "var(--font-frank-ruhl)",
             color: "#7A5C2A",
             fontSize: "19px",
             fontWeight: 500,
+            lineHeight: 1,
           }}>
             Sutrah.co
           </span>
@@ -40,12 +33,13 @@ export default function Hero() {
           {["Work", "Pricing", "Contact"].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} style={{
               fontFamily: "var(--font-dm-sans)",
+              fontSize: "16px",
+              fontStyle: "italic",
+              fontWeight: 500,
               backgroundColor: "#BF932A",
               color: "#FCF7DD",
-              padding: "10px 28px",
+              padding: "10px 24px",
               borderRadius: "65px",
-              fontSize: "16px",
-              fontWeight: 500,
               textDecoration: "none",
               whiteSpace: "nowrap",
             }}>
@@ -53,78 +47,92 @@ export default function Hero() {
             </a>
           ))}
         </nav>
-      </motion.div>
+      </div>
 
-      {/* Hero card */}
+      {/* HERO CARD */}
       <motion.div
         style={{
-          flex: 1,
-          minHeight: 0,
-          borderRadius: "65px",
           backgroundColor: "#FCF7DD",
+          borderRadius: "65px",
+          margin: "16px 0",
+          padding: "120px 80px",
+          textAlign: "center",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
-          padding: "72px 80px 60px 80px",
-          textAlign: "left",
+          alignItems: "center",
         }}
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       >
-        {/* Headline */}
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "20px" }}>
-          <motion.h1
-            style={{
-              fontFamily: "var(--font-fraunces)",
-              fontSize: "clamp(64px, 9vw, 110px)",
-              lineHeight: 1.05,
-              fontWeight: 700,
-              margin: 0,
-            }}
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
-          >
-            <span style={{ color: "#7A5C2A" }}>We build. We run.</span>
-            <br />
-            <span style={{ color: "#BF932A", fontStyle: "italic" }}>You grow.</span>
-          </motion.h1>
+        {/* Heading */}
+        <motion.h1
+          style={{
+            fontFamily: "var(--font-fraunces)",
+            fontSize: "88px",
+            fontWeight: 700,
+            color: "#7A5C2A",
+            lineHeight: 1.1,
+            margin: 0,
+          }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+        >
+          We build. We run.
+        </motion.h1>
 
-          {/* Subtext */}
-          <motion.p
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              color: "#7A5C2A",
-              fontSize: "16px",
-              lineHeight: 1.6,
-              maxWidth: "800px",
-              margin: 0,
-            }}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            Professional websites for Malaysian businesses — built fast, managed fully, zero headaches.
-          </motion.p>
-        </div>
+        {/* Subheading */}
+        <motion.h2
+          style={{
+            fontFamily: "var(--font-fraunces)",
+            fontSize: "88px",
+            fontWeight: 700,
+            fontStyle: "italic",
+            color: "#BF932A",
+            lineHeight: 1.1,
+            margin: 0,
+            marginBottom: "48px",
+          }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.25 }}
+        >
+          You grow.
+        </motion.h2>
 
-        {/* Explore */}
+        {/* Subtext */}
+        <motion.p
+          style={{
+            fontFamily: "var(--font-dm-sans)",
+            fontSize: "16px",
+            color: "#7A5C2A",
+            maxWidth: "640px",
+            margin: "0 auto 48px auto",
+            lineHeight: 1.6,
+          }}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          Professional websites for Malaysian businesses — built fast, managed fully, zero headaches.
+        </motion.p>
+
+        {/* CTA */}
         <motion.a
           href="#work"
           style={{
             fontFamily: "var(--font-dm-sans)",
-            color: "#7A5C2A",
             fontSize: "16px",
+            color: "#7A5C2A",
+            textDecoration: "none",
             display: "flex",
             alignItems: "center",
-            gap: "8px",
-            textDecoration: "none",
+            gap: "6px",
           }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.5 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
         >
           <span>Explore</span>
           <motion.span
