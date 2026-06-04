@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
   const paidAtFormatted = paidAt ? new Date(paidAt).toLocaleString("en-MY", { timeZone: "Asia/Kuala_Lumpur" }) : "—";
 
   await resend.emails.send({
-    from: "Sutrah Payments <onboarding@resend.dev>",
+    from: "Sutrah Payments <hello@sutrah.co>",
     to: OWNER_EMAIL,
     subject: `New deposit received — ${description || "Sutrah Plan"}`,
     html: `

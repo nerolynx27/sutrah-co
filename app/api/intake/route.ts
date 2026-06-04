@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
     ).join("") || "<tr><td colspan='3' style='padding:8px;color:#999'>None provided</td></tr>";
 
     await resend.emails.send({
-      from: "Sutrah.co <onboarding@resend.dev>",
+      from: "Sutrah.co <hello@sutrah.co>",
       to: "sutrahdotco@gmail.com",
       subject: `📋 New Intake Form: ${body.business_name}`,
       html: `
