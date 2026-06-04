@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, DM_Sans, Frank_Ruhl_Libre } from "next/font/google";
 import "./globals.css";
 import Loader from "@/components/Loader";
+import { Analytics } from "@vercel/analytics/react";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -64,6 +65,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-bg text-text">
         <Loader />
         {children}
+        <Analytics />
       </body>
     </html>
   );
