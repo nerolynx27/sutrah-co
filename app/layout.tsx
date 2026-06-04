@@ -3,6 +3,7 @@ import { Fraunces, DM_Sans, Frank_Ruhl_Libre } from "next/font/google";
 import "./globals.css";
 import Loader from "@/components/Loader";
 import { Analytics } from "@vercel/analytics/react";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -63,9 +64,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${dmSans.variable} ${frankRuhl.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-bg text-text">
-        <Loader />
-        {children}
-        <Analytics />
+        <PostHogProvider>
+          <Loader />
+          {children}
+          <Analytics />
+        </PostHogProvider>
       </body>
     </html>
   );
