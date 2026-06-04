@@ -6,7 +6,7 @@ const BILLPLZ_API_URL = process.env.BILLPLZ_SANDBOX === "true"
 
 const BILLPLZ_API_KEY = process.env.BILLPLZ_API_KEY!;
 const BILLPLZ_COLLECTION_ID = process.env.BILLPLZ_COLLECTION_ID!;
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://sutrah-co.vercel.app";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://sutrah.co";
 
 export async function POST(req: NextRequest) {
   try {

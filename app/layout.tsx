@@ -23,7 +23,7 @@ const frankRuhl = Frank_Ruhl_Libre({
   weight: ["400", "500", "700"],
 });
 
-const BASE_URL = "https://sutrah-co.vercel.app";
+const BASE_URL = "https://sutrah.co";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

@@ -90,7 +90,7 @@ export default function OGImage() {
             fontWeight: 500,
           }}
         >
-          sutrah-co.vercel.app
+          sutrah.co
         </div>
       </div>
     ),
