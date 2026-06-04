@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: "Sutrah.co <onboarding@resend.dev>",
-      to: "mamunmuaz463@gmail.com",
+      to: "sutrahdotco@gmail.com",
       subject: `🔔 New Lead: ${body.business_name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
