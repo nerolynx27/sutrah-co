@@ -121,7 +121,7 @@ export default function Hero() {
 
         {/* CTA */}
         <motion.a
-          href="#work"
+          href="#pricing"
           style={{
             fontFamily: "var(--font-dm-sans)",
             fontSize: "16px",

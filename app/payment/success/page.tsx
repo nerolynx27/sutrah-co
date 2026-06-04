@@ -36,13 +36,20 @@ export default function PaymentSuccess({
           </p>
         </div>
 
+        <Link
+          href={`/intake?plan=${encodeURIComponent(plan)}`}
+          className="w-full bg-[#BF932A] text-[#0D0D0D] font-bold py-3.5 rounded-full text-sm hover:bg-[#DFC57B] transition-colors text-center"
+        >
+          Fill Your Business Details →
+        </Link>
+
         <div className="bg-[#1A1A1A] border border-[#FCFCF7]/5 rounded-2xl p-5 w-full text-left flex flex-col gap-2">
           <p className="text-[#ECDCAB]/50 text-sm">What happens next</p>
           <ul className="flex flex-col gap-2 mt-1">
             {[
-              "We review your deposit",
-              "You receive a welcome email within 24h",
-              "Kickoff call to discuss your website",
+              "Fill your business details (takes 5 mins)",
+              "We review and confirm within 24h",
+              "Kickoff call to align on design",
               "We start building — delivered in 7 days",
             ].map((step, i) => (
               <li key={i} className="flex items-center gap-3 text-sm text-[#ECDCAB]/70">

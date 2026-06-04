@@ -57,10 +57,21 @@ export default function Contact() {
         </div>
 
         {submitted ? (
-          <div className="text-center py-16 bg-[#1A1A1A] rounded-2xl border border-[#BF932A]/30">
-            <div className="text-4xl mb-4">✅</div>
-            <h3 className="text-[#FCFCF7] font-bold text-xl mb-2">Message received!</h3>
-            <p className="text-[#ECDCAB]/60">We'll WhatsApp or email you within 24 hours.</p>
+          <div className="text-center py-16 bg-[#1A1A1A] rounded-2xl border border-[#BF932A]/30 flex flex-col items-center gap-5">
+            <div className="text-4xl">✅</div>
+            <div>
+              <h3 className="text-[#FCFCF7] font-bold text-xl mb-2">Message received!</h3>
+              <p className="text-[#ECDCAB]/60">We'll WhatsApp or email you within 24 hours.</p>
+            </div>
+            <div className="border-t border-[#FCFCF7]/5 w-full pt-5 flex flex-col items-center gap-3">
+              <p className="text-[#ECDCAB]/50 text-sm">Ready to get started now?</p>
+              <a
+                href="#pricing"
+                className="bg-[#BF932A] text-[#0D0D0D] font-bold px-8 py-3 rounded-full text-sm hover:bg-[#DFC57B] transition-colors"
+              >
+                See Pricing Plans →
+              </a>
+            </div>
           </div>
         ) : (
           <form
