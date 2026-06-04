@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const OWNER_EMAIL = "mamunmuaz463@gmail.com";
+const OWNER_EMAIL = "sutrahdotco@gmail.com";
 
 export async function POST(req: NextRequest) {
   const body = await req.formData();
